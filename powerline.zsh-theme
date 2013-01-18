@@ -1,11 +1,12 @@
 # FreeAgent puts the powerline style in zsh !
 
-POWERLINE_DETECT_SSH="true"
-POWERLINE_FULL_CURRENT_PATH="true"
+POWERLINE_NO_BLANK_LINE=""
+POWERLINE_RIGHT_A=$'$(~/.rvm/bin/rvm-prompt)'
+POWERLINE_SHOW_GIT_ON_RIGHT=""
 
-if [ "$POWERLINE_RIGHT_B" = "" ]; then
-  POWERLINE_RIGHT_B=%D{%H:%M:%S}
-fi
+#if [ "$POWERLINE_RIGHT_B" = "" ]; then
+#  POWERLINE_RIGHT_B=%D{%H:%M:%S}
+#fi
 
 if [ "$POWERLINE_RIGHT_A" = "" ]; then
   POWERLINE_RIGHT_A=%D{%Y-%m-%d}
@@ -48,16 +49,6 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%F{220]➜%f"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%F{082]═%f"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%F{190]✭%f"
 
-function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
-}
-
-function prompt_char {
-    git branch >/dev/null 2>/dev/null && echo '±' && return
-    hg root >/dev/null 2>/dev/null && echo '☿' && return
-    echo '○'
-}
-
 POWERLINE_SEC1_BG=%K{green}
 POWERLINE_SEC1_FG=%F{green}
 POWERLINE_SEC1_TXT=%F{black}
@@ -68,12 +59,14 @@ if [ "$POWERLINE_DETECT_SSH" != "" ]; then
     POWERLINE_SEC1_TXT=%F{white}
   fi
 fi
-PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT %n %k%f$POWERLINE_SEC1_FG%K{blue}"$'\u2b80'"%k%f%F{white}%K{blue} "$POWERLINE_CURRENT_PATH" "$POWERLINE_GIT_INFO_LEFT"%k%f%F{blue}"$'\u2b80'"%f
-$(virtualenv_info)$(prompt_char) "
+PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT %n %k%f$POWERLINE_SEC1_FG%K{blue}"$'\u2b80'"%k%f%F{white}%K{blue} "$POWERLINE_CURRENT_PATH" "$POWERLINE_GIT_INFO_LEFT"%k%f%F{blue}"$'\u2b80'"%f "
 
 if [ "$POWERLINE_NO_BLANK_LINE" = "" ]; then
     PROMPT="
 "$PROMPT
 fi
 
-RPROMPT=$POWERLINE_GIT_INFO_RIGHT$POWERLINE_COLOR_FG_WHITE$'\u2b82'"%f$POWERLINE_COLOR_BG_WHITE $POWERLINE_COLOR_FG_GRAY$POWERLINE_RIGHT_B "$'\u2b82'"%f%k$POWERLINE_COLOR_BG_GRAY$POWERLINE_COLOR_FG_WHITE $POWERLINE_RIGHT_A %f%k"
+#RPROMPT=$POWERLINE_GIT_INFO_RIGHT$POWERLINE_COLOR_FG_WHITE$'\u2b82'"%f$POWERLINE_COLOR_BG_WHITE $POWERLINE_COLOR_FG_GRAY$POWERLINE_RIGHT_B "$'\u2b82'"%f%k$POWERLINE_COLOR_BG_GRAY$POWERLINE_COLOR_FG_WHITE $POWERLINE_RIGHT_A %f%k"
+
+RPROMPT=$POWERLINE_GIT_INFO_RIGHT$POWERLINE_COLOR_FG_GRAY$'\u2b82'"%f%k$POWERLINE_COLOR_BG_GRAY$POWERLINE_COLOR_FG_WHITE $POWERLINE_RIGHT_A %f%k"
+
