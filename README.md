@@ -13,7 +13,7 @@ Set Up
 
 1. Clone the repository.
 
-2. Install one of the Fonts in the **fonts** directory.
+2.
 
 3. Install the **2morrowNight.itermcolors** for best results in the **itermcolors** directory.
 
@@ -38,8 +38,7 @@ By default, at the right of the powerline are displayed the date and the time.
 If you don't want date or time, you can choose what you want to display:
 
 ```
-POWERLINE_RIGHT_A="date replacement"
-POWERLINE_RIGHT_B="time replacement"
+POWERLINE_RIGHT_A="rvm-prompt replacement"
 ```
 
 If you don't want the blank line before the prompt:
@@ -69,7 +68,7 @@ POWERLINE_DETECT_SSH="true"
 Requirements
 ------------
 
-* Vim Powerline patched font: See [Powerline for vim](https://github.com/Lokaltog/vim-powerline.git) for more info.
+* Vim Powerline patched font: See [Powerline for vim](https://github.com/Lokaltog/vim-powerline.git) for more info (you can install one of the Fonts in the **fonts** directory).
 * Z shell (zsh): See [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) for more info.
 * Make sure terminal is using 256-colors mode with `export TERM="xterm-256color"`.
 
