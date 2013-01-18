@@ -13,17 +13,17 @@ Set Up
 
 1. Clone the repository.
 
-2.
+2. Install one of the Fonts in the fonts directory.
 
 3. Install the **2morrowNight.itermcolors** for best results in the **itermcolors** directory.
 
-2. Create a symlink of **powerline.zsh-theme** in **.oh-my-zsh/themes/**. You can use the **install_in_omz.sh** file:
+4. Create a symlink of **powerline.zsh-theme** in **.oh-my-zsh/themes/**. You can use the **install_in_omz.sh** file:
 
     ```
     ./install_in_omz.sh
     ```
 
-3. Configure the theme in your **.zshrc** file:
+5. Configure the theme in your **.zshrc** file:
 
     ```
     ZSH_THEME="powerline"
